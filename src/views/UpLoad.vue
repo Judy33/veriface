@@ -24,10 +24,9 @@
         id="fileUpload"
         style="position:absolute; clip:rect(0 0 0 0);"
         @change="uploadVideo($event)"
-        capture="camera"
+        capture="camcorder"
         ref="file"
         v-show="!backHome"
-        mutiple="mutiple" 
       />
       <video :src="videoUrl" controls preload="auto" style="display:none" ref="videoPlayer" muted></video>
       <button v-show="backHome" class="wrapper" @click="goHome">获取验证码失败</button>
@@ -65,7 +64,7 @@ export default {
   created() {
     //  请求sessionId和code
     this.$http
-      .post("http://wallet.adpaytoken.com:8181/face/sessioncode")
+      .post("/face/sessioncode")
       // .post("/api/face/sessioncode")
       .then(res => {
         this.sessionId = res.data.data.sessionId;
@@ -172,7 +171,7 @@ export default {
     doUpload(formdata) {
       //请求接口 并判断上传是否成功
       this.$http
-        .post("http://wallet.adpaytoken.com:8181face/verify", formdata)
+        .post("/face/verify", formdata)
         //  .post("/api/face/verify", formdata)
         .then(res => {
           this.isAcs = res.data.code;
