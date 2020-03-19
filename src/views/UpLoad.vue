@@ -172,7 +172,7 @@ export default {
     doUpload(formdata) {
       //请求接口 并判断上传是否成功
       this.$http
-        .post("http://wallet.adpaytoken.com:8181/face/verify", formdata)
+        .post("http://wallet.adpaytoken.com:8181face/verify", formdata)
         //  .post("/api/face/verify", formdata)
         .then(res => {
           this.isAcs = res.data.code;
