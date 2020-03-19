@@ -62,7 +62,7 @@ export default {
   },
 
   created() {
-    //  请求sessionId和code
+    //  请求sessionId和code 
     this.$http
       .post("/face/sessioncode")
       // .post("/api/face/sessioncode")
